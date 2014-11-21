@@ -1,0 +1,61 @@
+<div class="container-fluid">
+	<div class="row">
+		<div>
+			<ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control">		
+		        <ui-gmap-marker coords="locationMarker.coords" options="locationMarker.options" idKey="locationMarker.id"></ui-gmap-marker> 
+		        <ui-gmap-marker ng-repeat="m in map.placesMarkers" coords="m.coords" options="m.options" idKey="m.id" icon="m.icon"></ui-gmap-marker>                     
+			</ui-gmap-google-map>
+		</div>	
+		<div class="col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6 col-xs-12 col-menu">
+			<div class="well menu">
+				<form class="form-inline center-block" role="form" ng-submit="searchPlaces()">
+					<div class="form-group">
+						<div class="input-group">
+						<span class="input-group-btn">
+							<button type="button" id="lang" class="btn btn-default" ng-click="changeLanguage()"><img ng-src="/app/img/{{lang}}.png"  alt="lang-flag"></button>
+							</span>
+							<label class="sr-only" for="searchInput">{{ 'SEARCH_BAR' | translate }}</label>
+							<input ng-model="query" type="text" class="form-control" id="searchInput" placeholder="{{ 'SEARCH_BAR' | translate }}">
+							<span class="input-group-btn">
+								<button type="submit" id="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+							</span>
+						</div>
+					</div>					
+				</form>	
+				<div id="panelResult" class="panel panel-default">
+					<div class="panel-heading">
+						{{ 'RESULT_TITLE' | translate }}
+						<img src="/app/img/powered-by-google-on-white.png" alt="google-logo">
+						<button type="button" class="btn btn-sm btn-default btn-results" ng-click="toggleResults()">
+							<span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+						</button>				  	
+					</div>
+					<div id="blocResult">		
+						<ul id="listResult" class="places list-group">
+							<li class="list-group-item" ng-repeat="result in results">
+								<div class="row">
+									<div class="col-md-1 col-sm-2 col-xs-2">
+										<img class="thumbnail" ng-src="{{result.icon}}" alt="">
+									</div>
+									<div class="col-md-11 col-sm-10 col-xs-10">
+										<address>
+											<span class="place-name">{{result.name}}</span>
+											<br>
+											<span class="place-address">{{result.formatted_address}}</span>
+										</address>
+									</div>
+
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div> 							
+			</div>		
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-12">
+			
+		</div>
+	</div>
+</div>
