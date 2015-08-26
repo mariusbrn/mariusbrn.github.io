@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="RHTest" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="RHTest" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="RHTest" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="RHTest" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My App</title>
+  <title>My Running Test</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/gplaces-angular-app.min.css">  
-  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <link rel="stylesheet" href="styles/MyRuuningTest.min.css">
+
+  <script src="scripts/MyRuuningTest-head.min.js"></script>
+
 </head>
 <body>
 
@@ -18,15 +21,13 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div class="view-container">
-    <div ng-view class="view-frame"></div>
-  </div>
+  <div class="wrapper" ng-view></div>
 
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>     
-  <script src="js/gplaces-angular-app-body.min.js"></script>         
-       
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
 
+  <script data-main="scripts/main" src="scripts/MyRuuningTest-body.min.js"></script>
 
 </body>
 </html>
